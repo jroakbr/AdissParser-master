@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include $(sys.CURRENTDIR)Constants.wxi?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="{F3BCB65B-AA97-4AF2-8152-C01AB923D626}"
+           Version="0.1.15.0"
+           Name="$(var.AppNameWithSpaces)" Language="1033" Manufacturer="Great Lakes Dredge and Dock" UpgradeCode="4f2d5b15-7f05-47a8-a57e-234cf42a4843">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="AdissParserInstaller" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="CMP_ProgramMenu_AdissParserEXEShortcut"/>
+      <ComponentRef Id="CMP_Desktop_AdissParserEXEShortcut"/>
+    </Feature>
+    
+    <UIRef Id="GlddUI_Minimal"/>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="GLDDFOLDER" Name="Gldd">
+          <Directory Id="INSTALLFOLDER" Name="$(var.AppName)" />
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ProgramMenuAdissParserFolder" Name="$(var.AppNameWithSpaces)">
+        </Directory>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop"/>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <ComponentGroupRef Id="ProductComponentsFragment"/>
+    </ComponentGroup>
+  </Fragment>
+  
+  <Fragment>
+    <DirectoryRef Id="ProgramMenuAdissParserFolder">
+      <Component Id="CMP_ProgramMenu_AdissParserEXEShortcut" Guid="{454AC18D-816B-45C7-88F8-F7A653D3355E}">
+        <Shortcut Id="AdissParserEXEShortcut"
+          Name="$(var.AppNameWithSpaces)"
+          Target="[INSTALLFOLDER]$(var.Gldd.AdissParser.TargetFileName)"/>
+        <RemoveFolder Id="RemoveProgramMenuAdissParserFolder" On="uninstall"/>
+        <RegistryValue Id="REGVAL_ProgramMenu_AdissParserLNK" Root="HKCU" Key="$(var.AppRegKey)" Name="ProgramMenuShortcut" Type="integer" Value="1" KeyPath="yes">
+        </RegistryValue>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="CMP_Desktop_AdissParserEXEShortcut" Guid="{A01572DF-E7AC-48B4-BEAB-AF2246915151}">
+        <Shortcut Id="DesktopAdissParserEXEShortcut"
+          Name="$(var.AppNameWithSpaces)"
+          Target="[INSTALLFOLDER]$(var.Gldd.AdissParser.TargetFileName)"/>
+        <RegistryValue Id="REGVAL_Desktop_AdissParserLNK" Root="HKCU" Key="$(var.AppRegKey)" Name="DesktopShortcut" Type="integer" Value="1" KeyPath="yes">
+        </RegistryValue>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+</Wix>

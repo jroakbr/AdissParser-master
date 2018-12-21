@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gldd.AdissParser", "Gldd.AdissParser\Gldd.AdissParser.csproj", "{DEEEFFA5-CCF9-48A8-8C9D-5CB7C1BD064A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gldd.AdissParser.Tests", "Gldd.AdissParser.Tests\Gldd.AdissParser.Tests.csproj", "{C566FEA4-3365-4DAF-B8FD-28A02A8DE0F1}"
+EndProject
+Global
+	GlobalSection(VaultVsipSolution-v1) = preSolution
+		VaultHost = http://sourcevlt/VaultService
+		VaultRepositoryID = 6
+		VaultRepositoryGUID = aaab88cb-385e-4977-bf64-821685a3fde1
+		ProjectCount = 2
+		ProjectRelativeDiskPath1 = Gldd.AdissParser\Gldd.AdissParser.csproj
+		ProjectRelativeDiskPath2 = Gldd.AdissParser.Tests\Gldd.AdissParser.Tests.csproj
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEEEFFA5-CCF9-48A8-8C9D-5CB7C1BD064A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEEEFFA5-CCF9-48A8-8C9D-5CB7C1BD064A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEEEFFA5-CCF9-48A8-8C9D-5CB7C1BD064A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEEEFFA5-CCF9-48A8-8C9D-5CB7C1BD064A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C566FEA4-3365-4DAF-B8FD-28A02A8DE0F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C566FEA4-3365-4DAF-B8FD-28A02A8DE0F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C566FEA4-3365-4DAF-B8FD-28A02A8DE0F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C566FEA4-3365-4DAF-B8FD-28A02A8DE0F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5780B7BF-0AC2-4ECE-BDDB-D5B350CD92B5}
+	EndGlobalSection
+EndGlobal
